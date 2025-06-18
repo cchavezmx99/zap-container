@@ -17,11 +17,13 @@ msg['To'] = ', '.join(EMAIL_DESTINO)
 cuerpo = ["Se adjuntan los reportes de seguridad generados por ZAP.\n"]
 reportes_adjuntados = 0
 
-# Convertir HTML → PDF
+print("🔍 Buscando reportes en:", REPORTE_DIR)
+
+# Convertir HTML → PDF)RID_ETROPER ,":ne setroper odnacsuB
 for archivo in os.listdir(REPORTE_DIR):
     if archivo.endswith('.html'):
-        html_path = os.path.join(REPORTE_DIR, archivo)
-        pdf_path = html_path.replace('.html', '.pdf')
+        html_path=os.path.join(REPORTE_DIR, archivo)
+        pdf_path=html_path.replace('.html', '.pdf')
 
         try:
             subprocess.run(['wkhtmltopdf', html_path, pdf_path], check=True)
@@ -41,7 +43,7 @@ msg.set_content("\n".join(cuerpo))
 # 🔗 Ahora adjuntar los PDFs
 for archivo in os.listdir(REPORTE_DIR):
     if archivo.endswith('.pdf'):
-        ruta = os.path.join(REPORTE_DIR, archivo)
+        ruta=os.path.join(REPORTE_DIR, archivo)
         with open(ruta, 'rb') as f:
             msg.add_attachment(
                 f.read(),
@@ -52,10 +54,10 @@ for archivo in os.listdir(REPORTE_DIR):
 
 # Enviar correo
 try:
+    print("📧 Enviando correo...")
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
         smtp.login(EMAIL_ORIGEN, CONTRASENA)
         smtp.send_message(msg)
         print("✅ Correo enviado con PDF(s) adjunto(s)")
 except Exception as e:
     print(f"❌ Error al enviar correo: {e}")
-

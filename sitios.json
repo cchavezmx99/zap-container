@@ -1,8 +1,11 @@
-[
-  "https://freight.99minutos.dev/",
-  "https://invoicing-profiles.99minutos.dev/user/chile1@yopmail.com/general",
-  "https://tracking.99minutos.dev/",
-  "https://authsandbox.99minutos.com/",
-  "https://consola99-dev.99-min.com/",
-  "https://www.99minutos.com/"
-]
+{
+  "sitios": [
+    "https://authsandbox.99minutos.com/",
+    "https://invoicing-profiles.99minutos.dev/user/chile1@yopmail.com/general",
+    "https://tracking.99minutos.dev/",
+    "https://authsandbox.99minutos.com/",
+    "https://consola99-dev.99-min.com/",
+    "https://www.99minutos.com/",
+    "https://freight.99minutos.dev/"
+  ]
+}
